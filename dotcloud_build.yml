@@ -1,0 +1,5 @@
+nodechat:
+  requirements:
+    - socket
+    - irc
+    - mongoose 

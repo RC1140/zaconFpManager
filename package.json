@@ -1,0 +1,13 @@
+{
+    "name": "fpMaster",
+        "description": "The fpMaster , manages the game",
+        "version": "0.0.1",
+        "homepage": "http://zacon.org",
+        "author": "RC1140",
+        "private": true,
+        "dependencies": {
+            "mongoose": ">= 0.0",
+            "irc": ">= 0.0"
+        },
+        "engines": { "node": ">= 0.4.7" }
+}
