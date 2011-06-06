@@ -40,7 +40,7 @@ var handleHumanVerification = function(req, res) {
                //If the user if valid , record a success for the name entered , or based on the url
                fpMan.currentHash = '';
                res.send('You have won this FP , you are hopefully human thanks for helping');
-               client.say('#jumpdeck',fpMan.fpCurrentWiningUser +' has won the fp.');
+               client.say(config.IRC.channel,fpMan.fpCurrentWiningUser +' has won the fp.');
                fpMan.userHasWon(fpMan.fpCurrentWiningUser);
                fpMan.fpCurrentWiningUser = ''; 
                fpMan.setupNextFpOpen(client);

@@ -1,4 +1,5 @@
 var dbMan = require('./dbManager');
+var config = require('./settings');
 var fpManager = {}
 fpManager.recaptcha = {}
 
@@ -20,7 +21,7 @@ var setupNextFpOpen = function(ircClient){
 
 var announceAndOpenFp = function(ircClient){
         fpManager.fpOpen = true;
-        ircClient.say('#jumpdeck','FP is open go for it');
+        ircClient.say(config.IRC.channel,'FP is open go for it');
 };
 
 var userHasWon = function(userName){

@@ -14,7 +14,7 @@ var client = new irc.Client(config.IRC.server, 'fpm', {
 client.addListener('registered', function () {
        fpManager.setupNextFpOpen(client);
        setTimeout(function(){
-           client.say('#jumpdeck','Next FP starts at : ' + fpManager.ttNFp.toString() + ' seconds ');
+           client.say(confir.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString() + ' seconds ');
            },10000);
        formManager.loadAndInit(client);
 });
@@ -24,12 +24,12 @@ client.addListener('message', function (from, to, message) {
     if(fpManager.fpOpen && message.match(fpCatch)){
         fpManager.fpOpen = false;
         fpManager.currentHash = hashlib.md5(Date.now().toString() + from);
-        client.say(from,'http://localhost:3000/'+fpManager.currentHash+'/');
-        client.say('#jumpdeck',from +' has won the challenge , awaiting humanity challenge.');
+        client.say(from,config.hostingURL+fpManager.currentHash+'/');
+        client.say(config.IRC.channel,from +' has won the challenge , awaiting humanity challenge.');
         fpManager.fpCurrentWiningUser = from;
         setTimeout(function(){
             if(fpManager.currentHash != ''){
-                client.say('#jumpdeck',fpManager.fpCurrentWiningUser +' has lost the challenge, better luck next time.');
+                client.say(config.IRC.channel,fpManager.fpCurrentWiningUser +' has lost the challenge, better luck next time.');
                 fpManager.currentHash = '';     
                 fpManager.fpCurrentWiningUser = '';
                 fpMan.setupNextFpOpen(client);
@@ -37,9 +37,9 @@ client.addListener('message', function (from, to, message) {
         },60000);
    }else{
         if (fpManager.fpCurrentWiningUser != '' && message.match(fpCatch)){
-            client.say('#jumpdeck',fpManager.fpCurrentWiningUser +' is is currently being verified.');
+            client.say(config.IRC.channel,fpManager.fpCurrentWiningUser +' is is currently being verified.');
         }else if(message.match(fpCatch)){
-            client.say('#jumpdeck','Next FP starts at : ' + fpManager.ttNFp.toString() + ' seconds ');
+            client.say(config.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString() + ' seconds ');
         };
    }
 });
