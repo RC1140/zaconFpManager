@@ -1,8 +1,0 @@
-nodechat:
-  requirements:
-    - irc
-    - mongoose 
-    - jade 
-    - express
-    - recaptcha 
-    - hashlib 
