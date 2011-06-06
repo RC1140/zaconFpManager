@@ -13,5 +13,5 @@
             "recaptcha": ">= 0.0",
             "hashlib": ">= 0.0"
         },
-        "engines": { "node": ">= 0.4.7" }
+        "engines": { "node": ">= 0.4.5" }
 }
