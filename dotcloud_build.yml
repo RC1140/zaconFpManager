@@ -1,5 +1,8 @@
 nodechat:
   requirements:
-    - socket
     - irc
     - mongoose 
+    - jade 
+    - express
+    - recaptcha 
+    - hashlib 
