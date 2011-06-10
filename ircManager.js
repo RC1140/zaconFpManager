@@ -14,7 +14,7 @@ var client = new irc.Client(config.IRC.server, 'fpm', {
 client.addListener('registered', function () {
        fpManager.setupNextFpOpen(client);
        setTimeout(function(){
-           client.say(confir.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString() + ' seconds ');
+           client.say(config.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString() );
            },10000);
        formManager.loadAndInit(client);
 });
@@ -32,14 +32,14 @@ client.addListener('message', function (from, to, message) {
                 client.say(config.IRC.channel,fpManager.fpCurrentWiningUser +' has lost the challenge, better luck next time.');
                 fpManager.currentHash = '';     
                 fpManager.fpCurrentWiningUser = '';
-                fpMan.setupNextFpOpen(client);
+                fpManager.setupNextFpOpen(client);
             }
         },60000);
    }else{
         if (fpManager.fpCurrentWiningUser != '' && message.match(fpCatch)){
             client.say(config.IRC.channel,fpManager.fpCurrentWiningUser +' is is currently being verified.');
         }else if(message.match(fpCatch)){
-            client.say(config.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString() + ' seconds ');
+            client.say(config.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString());
         };
    }
 });

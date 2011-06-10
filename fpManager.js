@@ -11,7 +11,8 @@ fpManager.fpCurrentWiningUser = '';
 var milliseconds = 3600000;
 
 var setupNextFpOpen = function(ircClient){
-   var timeToNextFp = (Math.round(((Math.random() * 24)) * 1)/1) * milliseconds ;//10000;
+   var timeToNextFp = (Math.round(((Math.random() * 24)) * 1)/1) * milliseconds;//10000;
+   //var timeToNextFp = (Math.round(((Math.random() * 24)) * 1)/1) * 90000;
    fpManager.fpOpen = false;
    setTimeout(function(){
         announceAndOpenFp(ircClient);      
