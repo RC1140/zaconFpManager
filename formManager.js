@@ -65,7 +65,7 @@ formManager.loadAndInit = function(ircClient){
     //Setup the url handles and start listening
     app.post('/:hash', handleHumanVerification);
     app.get('/:hash',initialDisplayForUser );
-    app.listen(3000);
+    app.listen(8080);
 };
 
 module.exports = formManager;
