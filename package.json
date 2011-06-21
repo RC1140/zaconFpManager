@@ -6,12 +6,12 @@
         "author": "RC1140",
         "private": true,
         "dependencies": {
-            "mongoose": ">= 0.0",
-            "irc": ">= 0.0",
-            "jade": ">= 0.0",
-            "express": ">= 0.0",
-            "recaptcha": ">= 0.0",
-            "hashlib": ">= 0.0"
+            "mongoose": ">= 0.0.0",
+            "irc": ">= 0.2.0",
+            "jade": ">= 0.0.0",
+            "express": ">= 0.0.0",
+            "recaptcha": ">= 0.0.0",
+            "hashlib": ">= 0.0.0"
         },
         "engines": { "node": ">= 0.4.5" }
 }
