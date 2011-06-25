@@ -21,6 +21,7 @@ client.addListener('registered', function () {
 
 client.addListener('message', function (from, to, message) {
     var fpCatch = /^([f][p])$/i
+    var fpWinners = /^fpwinners$/i
     if(fpManager.fpOpen && message.match(fpCatch)){
         fpManager.fpOpen = false;
         fpManager.currentHash = hashlib.md5(Date.now().toString() + from);
@@ -40,6 +41,8 @@ client.addListener('message', function (from, to, message) {
             client.say(config.IRC.channel,fpManager.fpCurrentWiningUser +' is is currently being verified.');
         }else if(message.match(fpCatch)){
             client.say(config.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString());
+        }else if(message.match(fpWinners)){
+             
         };
    }
 });

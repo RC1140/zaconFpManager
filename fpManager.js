@@ -52,6 +52,21 @@ var userHasWon = function(userName){
     });
 };
 
+var getFpWinners = function(ircClient){
+    dbMan.fpResultsModel.find({},function(err,users){
+           if(err){
+                console.log(err); 
+           }else{
+                if(users){
+                    users.forEach(function(user){
+                        ircClient.say(config.IRC.channel,user.user.toString()+' has won ' +user.wins.toString() + ' times' );
+                    }); 
+                }; 
+           };
+    });
+};
+
+
 fpManager.userHasWon = userHasWon;
 fpManager.announceAndOpenFp = announceAndOpenFp;
 fpManager.setupNextFpOpen = setupNextFpOpen;
