@@ -69,9 +69,10 @@ var getFpWinners = function(ircClient){
                 console.log(err); 
            }else{
                 console.log('[+] Found users :');
-                console.log(users);
                 if(users){
+                    users.sort('wins');
                     users.forEach(function(user){
+                        console.log('[-] User : '+user.user.toString()+' has won ' +user.wins.toString() + ' times' );
                         ircClient.say(config.IRC.channel,user.user.toString()+' has won ' +user.wins.toString() + ' times' );
                     }); 
                 }; 
