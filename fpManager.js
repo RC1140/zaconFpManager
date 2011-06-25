@@ -12,7 +12,7 @@ var milliseconds = 3600000;
 
 //Load up the next fp time into a settimeout 
 var setupNextFpOpen = function(ircClient){
-   var timeToNextFp = (Math.round(((Math.random() * 24)) * 1)/1) * 1000;//milliseconds;//10000;
+   var timeToNextFp = (Math.round(((Math.random() * 24)) * 1)/1) * milliseconds;//10000;
    fpManager.fpOpen = false;
    setTimeout(function(){
         announceAndOpenFp(ircClient);      
@@ -64,13 +64,12 @@ var userHasWon = function(userName){
 //Get the list of users that have won fp and anounce them to the channel
 var getFpWinners = function(ircClient){
     console.log('loading the fpWinners');
-    dbMan.fpResultsModel.find({},function(err,users){
+    dbMan.fpResultsModel.sort('wins').find({},function(err,users){
            if(err){
                 console.log(err); 
            }else{
                 console.log('[+] Found users :');
                 if(users){
-                    users.sort('wins');
                     users.forEach(function(user){
                         console.log('[-] User : '+user.user.toString()+' has won ' +user.wins.toString() + ' times' );
                         ircClient.say(config.IRC.channel,user.user.toString()+' has won ' +user.wins.toString() + ' times' );
