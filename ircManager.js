@@ -42,7 +42,7 @@ client.addListener('message', function (from, to, message) {
         }else if(message.match(fpCatch)){
             client.say(config.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString());
         }else if(message.match(fpWinners)){
-             
+            fpManager.getFpWinners(client);
         };
    }
 });

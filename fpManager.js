@@ -68,6 +68,7 @@ var getFpWinners = function(ircClient){
 
 
 fpManager.userHasWon = userHasWon;
+fpManager.getFpWinners  = getFpWinners;
 fpManager.announceAndOpenFp = announceAndOpenFp;
 fpManager.setupNextFpOpen = setupNextFpOpen;
 
