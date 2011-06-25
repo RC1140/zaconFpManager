@@ -64,7 +64,7 @@ var userHasWon = function(userName){
 //Get the list of users that have won fp and anounce them to the channel
 var getFpWinners = function(ircClient){
     console.log('loading the fpWinners');
-    dbMan.fpResultsModel.sort('wins').find({},function(err,users){
+    dbMan.fpResultsModel.find({},function(err,users){
            if(err){
                 console.log(err); 
            }else{
