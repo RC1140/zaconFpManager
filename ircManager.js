@@ -38,7 +38,7 @@ client.addListener('message', function (from, to, message) {
         },60000);
    }else{
         if (fpManager.fpCurrentWiningUser != '' && message.match(fpCatch)){
-            client.say(config.IRC.channel,fpManager.fpCurrentWiningUser +' is is currently being verified.');
+            client.say(config.IRC.channel,fpManager.fpCurrentWiningUser +' is currently being verified.');
         }else if(message.match(fpCatch)){
             client.say(config.IRC.channel,'Next FP starts at : ' + fpManager.ttNFp.toString());
         }else if(message.match(fpWinners)){
