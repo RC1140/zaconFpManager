@@ -1,0 +1,13 @@
+var config = {}
+config.IRC = {}
+config.recaptcha = {}
+
+config.IRC.channel = '#zacon';
+config.IRC.server = 'tsunami.jhb.za.atrum.org';
+config.recaptcha.PUBLIC_KEY  = '';
+config.recaptcha.PRIVATE_KEY = '';
+
+config.mongoserver = '';
+
+config.hostingURL = 'http://fp.runawaycoder.co.za/';
+module.exports = config;
