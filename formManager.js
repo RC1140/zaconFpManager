@@ -1,8 +1,7 @@
-var express  = require('express');
+var app = express.createServer();
 var Recaptcha = require('recaptcha').Recaptcha;
 var config = require('./settings');
 var fpMan = require('./fpManager');
-var app = express.createServer();
 
 var formManager = {}
 var client;
