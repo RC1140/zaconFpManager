@@ -1,4 +1,3 @@
-var express  = require('express');
 var app = express.createServer();
 var Recaptcha = require('recaptcha').Recaptcha;
 var config = require('./settings');
